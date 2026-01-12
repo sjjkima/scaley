@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scale – Digital Growth Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { color: #1f2937; background: #f9fafb; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+    /* Navbar */
+    .navbar { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 10; }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+    .logo { font-weight: 800; font-size: 24px; font-family: 'Poppins', sans-serif; letter-spacing: 0.5px; }
+    nav a { margin-left: 25px; font-size: 15px; color: #374151; }
+    nav a:hover { color: #111827; }
+
+    /* Hero */
+    .hero { padding: 120px 0; background: #ffffff; }
+    .hero-flex { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+    .hero h1 { font-size: 64px; margin-bottom: 10px; line-height: 1.1; font-family: 'Poppins', sans-serif; font-weight: 800; }
+    .hero h1 span { display: block; font-size: 64px; font-weight: 800; color: #374151; margin-top: 6px; }
+    .hero p { max-width: 650px; color: #6b7280; font-size: 18px; }
+    .hero img { width: 100%; border-radius: 20px; }
+    .btn { display: inline-block; margin-top: 30px; padding: 14px 34px; border-radius: 30px; background: #0f766e; color: #ffffff; font-weight: bold; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(15,118,110,0.3); }
+
+    /* Services */
+    .services { background: #f1f5f9; padding: 90px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .service-card { background: #ffffff; padding: 30px; border-radius: 18px; border: 1px solid #e5e7eb; text-align: center; }
+    .service-card img { width: 60px; margin-bottom: 15px; }
+    .service-card h3 { margin-bottom: 10px; }
+    .service-card p { color: #6b7280; }
+
+    /* Portfolio */
+    .portfolio { padding: 90px 0; background: #ffffff; }
+    .portfolio h2 { text-align: center; font-size: 32px; margin-bottom: 50px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .portfolio-item { position: relative; height: 220px; border-radius: 18px; overflow: hidden; cursor: pointer; }
+    .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .portfolio-item:hover img { transform: scale(1.08); }
+    .portfolio-info { position: absolute; inset: 0; background: rgba(15,118,110,0.85); color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; opacity: 0; transition: opacity 0.4s ease; padding: 20px; }
+    .portfolio-item:hover .portfolio-info { opacity: 1; }
+    .portfolio-info h4 { margin-bottom: 8px; font-size: 18px; }
+    .portfolio-info p { font-size: 14px; color: #ccfbf1; }
+    .portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Contact Info */
+    .contact-info { background: #ffffff; padding: 90px 0; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+    .contact-info h3 { margin-bottom: 15px; font-size: 22px; }
+    .contact-info p { color: #6b7280; margin-bottom: 8px; }
+
+    /* CTA */
+    .cta { background: #0f766e; color: #ffffff; text-align: center; padding: 90px 20px; }
+    .cta p { color: #ccfbf1; margin-bottom: 30px; }
+    .btn.light { background: #ffffff; color: #0f766e; }
+    .cta p { color: #dbeafe; margin-bottom: 30px; }
+    .btn.light { background: #ffffff; color: #2563eb; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 34px; }
+      nav a { margin-left: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">Scaley</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <span style="margin-left:30px; font-size:14px; color:#6b7280;"></span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-flex">
+      <div>
+        <h1>Scale<span>Your Startup</span></h1>
+        <p>We help startups and growing businesses achieve sustainable growth through strategic digital marketing, high‑performance websites, and data‑driven execution.</p>
+        <a href="#portfolio" class="btn">View Our Work</a>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Startup team scaling business" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container services-grid">
+      <div class="service-card">
+        <img src="https://img.icons8.com/fluency/96/combo-chart.png" alt="Digital Marketing" />
+        <h3>Digital Marketing</h3>
+        <p>SEO, paid advertising, analytics, and performance-driven campaigns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <h2>Selected Work</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Startup Website">
+          <div class="portfolio-info">
+            <h4>Startup Website</h4>
+            <p>High‑conversion landing page for a tech startup.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="SaaS Platform">
+          <div class="portfolio-info">
+            <h4>SaaS Platform</h4>
+            <p>UI/UX design and frontend development.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Marketing Campaign">
+          <div class="portfolio-info">
+            <h4>Marketing Campaign</h4>
+            <p>Growth-focused digital marketing strategy.</p>
+          </div>
+        </div>
+      </div>
+        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Project 2"></div>
+        <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Project 3"></div>
+      </div>
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="contact-info" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <h3>Contact</h3>
+        <p>Email: workwithscaley@gmail.com</p>
+        <p>Phone: +977-9841666252</p>
+        <p>Location: Remote / Global</p>
+      </div>
+      <div>
+        <h3>Let’s Talk</h3>
+        <p>Tell us about your startup and growth goals.</p>
+        <a href="mailto:workwithscaley@gmail.coms" class="btn">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Scale?</h2>
+    <p>Partner with a team focused on sustainable startup growth.</p>
+    <a href="#contact" class="btn light">Get in Touch</a>
+  </section>
+
+</body>
+</html>
