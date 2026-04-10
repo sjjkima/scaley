@@ -1,0 +1,342 @@
+
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-sans);color:var(--color-text-primary);background:transparent;line-height:1.7}
+  .site{width:100%;overflow:hidden}
+
+  /* NAV */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;border-bottom:0.5px solid var(--color-border-tertiary);position:sticky;top:0;z-index:100;background:var(--color-background-primary)}
+  .logo{font-size:20px;font-weight:500;letter-spacing:-0.5px}
+  .logo span{color:#7F77DD}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{font-size:14px;color:var(--color-text-secondary);text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover{color:var(--color-text-primary)}
+  .nav-cta{background:#7F77DD;color:#fff;border:none;padding:8px 20px;border-radius:var(--border-radius-md);font-size:14px;font-weight:500;cursor:pointer;transition:opacity 0.2s}
+  .nav-cta:hover{opacity:0.85}
+
+  /* HERO */
+  .hero{padding:6rem 2.5rem 5rem;max-width:900px;margin:0 auto;text-align:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#EEEDFE;color:#534AB7;font-size:12px;font-weight:500;padding:5px 14px;border-radius:999px;margin-bottom:2rem;letter-spacing:0.4px}
+  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#7F77DD}
+  .hero h1{font-size:52px;font-weight:500;line-height:1.12;letter-spacing:-1.5px;margin-bottom:1.5rem;color:var(--color-text-primary)}
+  .hero h1 .accent{color:#7F77DD}
+  .hero p{font-size:18px;color:var(--color-text-secondary);max-width:560px;margin:0 auto 2.5rem;line-height:1.6}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{background:#534AB7;color:#fff;border:none;padding:13px 28px;border-radius:var(--border-radius-md);font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s}
+  .btn-primary:hover{background:#7F77DD}
+  .btn-secondary{background:transparent;color:var(--color-text-primary);border:0.5px solid var(--color-border-primary);padding:13px 28px;border-radius:var(--border-radius-md);font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s}
+  .btn-secondary:hover{background:var(--color-background-secondary)}
+
+  /* STATS BAR */
+  .stats-bar{border-top:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary);padding:2rem 2.5rem;display:flex;justify-content:center;gap:0}
+  .stat-item{text-align:center;padding:0 3rem;border-right:0.5px solid var(--color-border-tertiary)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-size:28px;font-weight:500;color:#7F77DD;letter-spacing:-0.5px}
+  .stat-label{font-size:13px;color:var(--color-text-secondary);margin-top:2px}
+
+  /* SERVICES */
+  .section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
+  .section-tag{font-size:12px;font-weight:500;color:#534AB7;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.75rem}
+  .section-title{font-size:36px;font-weight:500;letter-spacing:-0.8px;margin-bottom:1rem}
+  .section-sub{font-size:16px;color:var(--color-text-secondary);max-width:500px;margin-bottom:3rem}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--color-border-tertiary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+  .service-card{background:var(--color-background-primary);padding:2rem;transition:background 0.2s}
+  .service-card:hover{background:var(--color-background-secondary)}
+  .service-icon{width:36px;height:36px;border-radius:var(--border-radius-md);background:#EEEDFE;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+  .service-icon svg{width:18px;height:18px}
+  .service-card h3{font-size:16px;font-weight:500;margin-bottom:0.5rem}
+  .service-card p{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+
+  /* PROCESS */
+  .process-wrap{background:var(--color-background-secondary);padding:5rem 2.5rem}
+  .process-inner{max-width:1100px;margin:0 auto}
+  .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+  .process-step{position:relative}
+  .step-num{font-size:11px;font-weight:500;color:#7F77DD;letter-spacing:1px;margin-bottom:0.75rem}
+  .process-step h3{font-size:16px;font-weight:500;margin-bottom:0.5rem}
+  .process-step p{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+  .step-line{position:absolute;top:6px;right:-1rem;width:calc(100% - 1rem);height:0.5px;background:var(--color-border-tertiary);pointer-events:none}
+  .process-step:last-child .step-line{display:none}
+
+  /* WORK */
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--color-border-tertiary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+  .work-item{background:var(--color-background-primary);padding:2rem;cursor:pointer;transition:background 0.2s}
+  .work-item:hover{background:var(--color-background-secondary)}
+  .work-tag{font-size:11px;font-weight:500;color:#534AB7;background:#EEEDFE;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:1rem;letter-spacing:0.3px}
+  .work-item h3{font-size:18px;font-weight:500;margin-bottom:0.5rem}
+  .work-item p{font-size:14px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:1.25rem}
+  .work-meta{font-size:12px;color:var(--color-text-tertiary)}
+  .work-visual{height:160px;border-radius:var(--border-radius-md);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:1px;color:#AFA9EC;font-weight:500}
+  .bg-purple{background:#EEEDFE}
+  .bg-teal{background:#E1F5EE}
+  .bg-coral{background:#FAECE7}
+  .bg-amber{background:#FAEEDA}
+
+  /* TESTIMONIALS */
+  .testimonials-wrap{background:var(--color-background-secondary);padding:5rem 2.5rem}
+  .testimonials-inner{max-width:1100px;margin:0 auto}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+  .testi-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.75rem}
+  .testi-stars{display:flex;gap:3px;margin-bottom:1rem}
+  .star{width:12px;height:12px;background:#7F77DD;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+  .testi-text{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1.25rem;font-style:italic}
+  .testi-author{display:flex;align-items:center;gap:10px}
+  .testi-avatar{width:32px;height:32px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#534AB7}
+  .testi-name{font-size:13px;font-weight:500}
+  .testi-role{font-size:12px;color:var(--color-text-tertiary)}
+
+  /* CTA */
+  .cta-wrap{padding:6rem 2.5rem;text-align:center;max-width:700px;margin:0 auto}
+  .cta-wrap h2{font-size:42px;font-weight:500;letter-spacing:-1px;margin-bottom:1rem}
+  .cta-wrap p{font-size:17px;color:var(--color-text-secondary);margin-bottom:2.5rem}
+  .cta-contact{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+  .contact-pill{display:flex;align-items:center;gap:8px;padding:10px 18px;border:0.5px solid var(--color-border-tertiary);border-radius:999px;font-size:14px;color:var(--color-text-secondary);cursor:pointer;background:var(--color-background-secondary)}
+  .contact-pill svg{width:14px;height:14px;stroke:var(--color-text-secondary)}
+
+  /* FOOTER */
+  .footer{border-top:0.5px solid var(--color-border-tertiary);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-size:16px;font-weight:500}
+  .footer-logo span{color:#7F77DD}
+  .footer-copy{font-size:13px;color:var(--color-text-tertiary)}
+  .footer-links{display:flex;gap:1.5rem}
+  .footer-links a{font-size:13px;color:var(--color-text-secondary);text-decoration:none}
+
+  @media(max-width:700px){
+    .hero h1{font-size:34px}
+    .services-grid,.work-grid,.testi-grid,.process-steps{grid-template-columns:1fr}
+    .stats-bar{flex-wrap:wrap;gap:1.5rem}
+    .stat-item{border-right:none;padding:0 1.5rem}
+    .footer{flex-direction:column;gap:1rem;text-align:center}
+    .nav-links{display:none}
+  }
+</style>
+
+<div class="site">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">Scal<span>ey</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Process</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="sendPrompt('I want to start a project with Scaley')">Start a project</button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Digital Growth Agency · Kathmandu &amp; Remote</div>
+    <h1>We scale startups<br>into <span class="accent">market leaders</span></h1>
+    <p>Strategic marketing, high-performance websites, and data-driven execution — all under one roof.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="sendPrompt('Tell me about Scaley\'s services and pricing')">See our services</button>
+      <button class="btn-secondary" onclick="sendPrompt('Show me Scaley\'s portfolio and case studies')">View case studies</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">Projects delivered</div></div>
+    <div class="stat-item"><div class="stat-num">3×</div><div class="stat-label">Avg. growth for clients</div></div>
+    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Client satisfaction</div></div>
+    <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Industries served</div></div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section">
+    <div class="section-tag">What we do</div>
+    <div class="section-title">Everything you need to grow</div>
+    <div class="section-sub">Full-stack digital services built around one goal — sustainable, measurable growth for your business.</div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Growth marketing</h3>
+        <p>SEO, paid advertising, email campaigns, and performance analytics that compound over time.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Website design &amp; dev</h3>
+        <p>High-converting landing pages and web apps built for speed, clarity, and results.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+        </div>
+        <h3>Brand strategy</h3>
+        <p>Positioning, messaging, and visual identity that earns trust and stands out in crowded markets.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Community &amp; social</h3>
+        <p>Social media management, content creation, and community building that drives real engagement.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Product-led growth</h3>
+        <p>Funnel optimization, onboarding flows, and activation strategies to turn trials into loyal users.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Analytics &amp; reporting</h3>
+        <p>Dashboards, attribution modelling, and monthly strategy sessions so you always know what's working.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="process-wrap">
+    <div class="process-inner">
+      <div class="section-tag">How we work</div>
+      <div class="section-title">A clear process, every time</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01 — Discovery</div>
+          <h3>Understand your business</h3>
+          <p>We dig into your goals, audience, and market to build a shared foundation.</p>
+          <div class="step-line"></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02 — Strategy</div>
+          <h3>Build a growth roadmap</h3>
+          <p>A tailored plan with clear milestones, channels, and success metrics.</p>
+          <div class="step-line"></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03 — Execution</div>
+          <h3>Ship fast, iterate often</h3>
+          <p>Our team moves quickly, tests relentlessly, and doubles down on what works.</p>
+          <div class="step-line"></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04 — Scale</div>
+          <h3>Compound the results</h3>
+          <p>Monthly reviews and ongoing optimization to sustain and accelerate growth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <div class="section">
+    <div class="section-tag">Selected work</div>
+    <div class="section-title">Results we're proud of</div>
+    <div class="section-sub">A few projects where we moved the needle.</div>
+    <div class="work-grid">
+      <div class="work-item">
+        <div class="work-visual bg-purple">BRAND + WEBSITE</div>
+        <div class="work-tag">SaaS</div>
+        <h3>TechStart landing page</h3>
+        <p>Complete rebrand and high-conversion landing page that lifted trial signups by 220% in 60 days.</p>
+        <div class="work-meta">Design · Development · Copywriting</div>
+      </div>
+      <div class="work-item">
+        <div class="work-visual bg-teal">SEO + CONTENT</div>
+        <div class="work-tag">E-commerce</div>
+        <h3>Organic traffic growth</h3>
+        <p>Content strategy and technical SEO that tripled organic sessions within a quarter.</p>
+        <div class="work-meta">SEO · Content · Analytics</div>
+      </div>
+      <div class="work-item">
+        <div class="work-visual bg-coral">PAID ADS</div>
+        <div class="work-tag">Fintech</div>
+        <h3>Paid acquisition engine</h3>
+        <p>Built a multi-channel paid funnel achieving a 4.2× ROAS from month two onward.</p>
+        <div class="work-meta">Google Ads · Meta · Analytics</div>
+      </div>
+      <div class="work-item">
+        <div class="work-visual bg-amber">UI / UX</div>
+        <div class="work-tag">B2B Platform</div>
+        <h3>SaaS UI/UX redesign</h3>
+        <p>Redesigned onboarding flow that cut churn by 38% and improved activation by 60%.</p>
+        <div class="work-meta">UX Research · Design · Dev</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials-wrap">
+    <div class="testimonials-inner">
+      <div class="section-tag">What clients say</div>
+      <div class="section-title">Trusted by founders worldwide</div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <div class="testi-text">"Scaley didn't just build us a website — they built us a growth machine. Signups doubled in the first two months."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">AR</div>
+            <div><div class="testi-name">Arjun Rao</div><div class="testi-role">CEO, Launchpad SaaS</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <div class="testi-text">"The team is fast, transparent, and genuinely cares about results. Our organic traffic is up 3× and climbing."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div><div class="testi-name">Sara Müller</div><div class="testi-role">Founder, GreenCart</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <div class="testi-text">"Best agency investment we've made. Data-driven, creative, and always one step ahead. Highly recommended."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">NK</div>
+            <div><div class="testi-name">Nisha K.</div><div class="testi-role">CMO, PulseFinance</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <div class="section-tag" style="text-align:center">Ready to grow?</div>
+    <h2>Let's build something great together</h2>
+    <p>Tell us about your startup and growth goals. We respond within 24 hours.</p>
+    <button class="btn-primary" onclick="sendPrompt('I want to discuss a project with Scaley. Here are my details:')">Start the conversation ↗</button>
+    <div class="cta-contact">
+      <div class="contact-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        workwithscaley@gmail.com
+      </div>
+      <div class="contact-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.52 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.44 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.4a16 16 0 006.29 6.29l.79-.79a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +977-9841666252
+      </div>
+      <div class="contact-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+        Remote / Global
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Scal<span>ey</span></div>
+    <div class="footer-copy">© 2025 Scaley. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</div>
